@@ -7,6 +7,7 @@ RUN apk add --no-cache python3 py-pip git
 RUN apk add --no-cache build-base g++
 RUN pip install --upgrade pip
 RUN pip install --upgrade awscli
+RUN pip install --upgrade boto3
 
 #Install Terraform Version 0.12.24
 RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip \
