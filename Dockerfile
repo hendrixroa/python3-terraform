@@ -12,6 +12,7 @@ RUN apt-get update \
     libc6-dev \
     make \
     gnupg2 \
+    unzip \
     postgresql-client \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean autoclean \
