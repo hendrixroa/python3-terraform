@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends -y \
     iputils-ping \
     iproute2 \
-    curl \
+    wget \
     gcc \
     g++ \
     libc6-dev \
