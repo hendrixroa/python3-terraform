@@ -9,6 +9,8 @@ RUN apk update && apk upgrade && \
     py3-pip \
     git \
     build-base \
+    libpq \
+    postgresql-client \
     g++ && \
     rm -rf /var/cache/apk/*
 
