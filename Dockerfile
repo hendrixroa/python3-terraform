@@ -1,18 +1,22 @@
-FROM docker:latest
+FROM python:3.7.7-slim-stretch
 
-RUN apk update && apk upgrade && \
-    apk --no-cache --virtual build-dependencies add \
-    zip \
-    unzip \
-    wget \
-    python3 \
-    py3-pip \
-    git \
-    build-base \
-    libpq \
+RUN apt-get update \
+    && mkdir -p /usr/share/man/man1 \
+    && mkdir -p /usr/share/man/man7 \
+    && apt-get install --no-install-recommends -y \
+    iputils-ping \
+    iproute2 \
+    curl \
+    gcc \
+    g++ \
+    libc6-dev \
+    make \
+    gnupg2 \
     postgresql-client \
-    g++ && \
-    rm -rf /var/cache/apk/*
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean autoclean \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN pip3 install --upgrade pip
 RUN pip3 install awscli boto3
