@@ -1,13 +1,18 @@
 FROM docker:latest
 
-RUN apk update
-RUN apk upgrade
-RUN apk add --update zip unzip wget
-RUN apk add --no-cache python3 py-pip git
-RUN apk add --no-cache build-base g++
-RUN pip install --upgrade pip
-RUN pip install --upgrade awscli
-RUN pip install --upgrade boto3
+RUN apk update && apk upgrade && \
+    apk --no-cache --virtual build-dependencies add \
+    zip \
+    unzip \
+    wget \
+    python3 \ 
+    py-pip \
+    git \
+    build-base \
+    g++ && \
+    rm -rf /var/cache/apk/*
+
+RUN pip install --upgrade pip boto3 awscli
 
 #Install Terraform Version 0.12.24
 RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip \
