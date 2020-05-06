@@ -18,6 +18,7 @@ RUN apt-get update \
     ca-certificates \
     curl \
     software-properties-common \
+    libgeos-dev \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get clean autoclean \
     && apt-get autoremove -y \
