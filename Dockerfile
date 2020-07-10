@@ -37,8 +37,8 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - \
 RUN pip3 install --upgrade pip
 RUN pip3 install awscli boto3 requests lzstring
 
-#Install Terraform Version 0.12.24
-RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.24/terraform_0.12.24_linux_amd64.zip \
-  && unzip terraform_0.12.24_linux_amd64.zip \
+#Install Terraform Version 0.12.26
+RUN wget --quiet https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip \
+  && unzip terraform_0.12.26_linux_amd64.zip \
   && mv terraform /usr/bin \
-  && rm terraform_0.12.24_linux_amd64.zip
+  && rm terraform_0.12.26_linux_amd64.zip
